@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Days 🤍</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #e6dfff, #f7f3ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #333;
+}
+
+.container {
+  padding: 20px;
+  max-width: 420px;
+  animation: fadeIn 1.5s ease;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.days {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.small {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 20px;
+  background: #c8b6ff;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+#message {
+  margin-top: 20px;
+  font-size: 15px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Hari ini kita udah bareng</h1>
+  <div class="days" id="days">0</div>
+  <div class="small">Sejak 22 Desember 2025</div>
+
+  <button id="btn">baca pesan hari ini</button>
+
+  <div id="message"></div>
+</div>
+
+<audio id="music" loop>
+  <source src="lagu.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const startDate = new Date("2025-12-22");
+const today = new Date();
+const diffTime = today - startDate;
+const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+document.getElementById("days").innerText = diffDays + " hari";
+
+const messages = [
+  "makasih ya udah bertahan sejauh ini 🤍",
+  "kalo hari ini capek, gapapa istirahat dulu",
+  "aku bangga sama kamu, serius",
+  "pelan-pelan yaa, aku disini",
+  "hari ini kamu tetep berharga",
+  "jangan ngerasa sendirian, aku ada",
+  "kalo dunia lagi berat, aku peluk dari jauh",
+  "makasih udah milih aku",
+  "aku bersyukur punya kamu",
+  "semoga hari kamu tenang",
+
+  "kalo lagi overthinking, tarik napas pelan ya",
+  "aku percaya kamu kuat",
+  "gapapa kalo hari ini gak baik-baik aja",
+  "kamu gak harus selalu kuat",
+  "aku suka versi kamu yang sekarang",
+  "hari ini kamu udah cukup",
+  "aku seneng bisa bareng kamu",
+  "jangan dengerin omongan yang nyakitin",
+  "kamu lebih dari yang kamu kira",
+  "aku sayang kamu, tanpa tapi",
+
+  "makasih udah bangun hari ini",
+  "aku harap kamu makan yang cukup",
+  "jaga diri kamu ya",
+  "aku bangga tiap kamu bertahan",
+  "hari ini kamu gak gagal",
+  "aku dukung kamu dari sini",
+  "peluk buat kamu 🤍",
+  "aku suka caramu bertahan",
+  "kamu gak sendirian",
+  "aku ada buat kamu",
+
+  "kalo hari ini berat, besok kita coba lagi",
+  "aku seneng liat kamu berusaha",
+  "gapapa kalo nangis",
+  "aku suka kamu apa adanya",
+  "kamu pantas disayang",
+  "hari ini kamu berarti",
+  "aku percaya sama kamu",
+  "kamu gak harus sempurna",
+  "aku tetep milih kamu",
+  "makasih udah jadi kamu",
+
+  "aku tau kamu capek",
+  "istirahat bentar gak apa-apa",
+  "kamu berharga buat aku",
+  "aku seneng punya kamu",
+  "jangan nyerah ya",
+  "pelan tapi jalan",
+  "aku temenin sejauh yang aku bisa",
+  "kamu gak lebay, kamu manusia",
+  "aku ngerti kamu berusaha",
+  "aku disini dengerin",
+
+  "kalo hari ini sepi, aku nemenin",
+  "aku harap kamu ngerasa aman",
+  "kamu gak perlu ngebandingin diri kamu",
+  "aku bangga sama proses kamu",
+  "aku sayang caramu bertahan",
+  "hari ini kamu cukup",
+  "aku seneng kamu masih disini",
+  "kamu penting",
+  "aku percaya hari baik bakal dateng",
+  "aku selalu doain kamu"
+];
+
+const btn = document.getElementById("btn");
+const msgBox = document.getElementById("message");
+const music = document.getElementById("music");
+music.volume = 0.3;
+
+btn.addEventListener("click", () => {
+  const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+  msgBox.innerText = randomMsg;
+  msgBox.style.opacity = 1;
+  music.play();
+});
+</script>
+
+</body>
